@@ -1,5 +1,5 @@
 [https://mybookstore.pythonanywhere.com](https://mybookstore.pythonanywhere.com)
-# 📚 About Our Book Store
+# 📚 About My Book Store
 
 Welcome to our **Book Store Web Application**!  
 This platform offers a seamless experience for both customers and administrators, built using the **Django** framework with **SQLite** as the database.
