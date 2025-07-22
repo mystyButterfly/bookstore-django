@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block title %}Book store - Cart{% endblock %}
+
+{% block content %}
+    <div class="cart-item">
+        {% if book %}
+            <!-- Book exists, show details -->
+            <div class="cart-image">
+                <img src="{{ book.image_url }}" alt="{{ book.title }}">
+            </div>
+            <div class="cart-info">
+                <h2>{{ book.title }}</h2>
+                <p>{{ book.description }}</p>
+                <div class="price-container">
+                    <span>${{ book.price }}</span>
+                    <button class="buy-btn" onclick="handleBuy({{ book.id }}, '{{ book.title }}')">Buy NOW</button>
+                </div>
+            </div>
+        {% else %}
+            <!-- Book doesn't exist, show error message -->
+            <h2>We couldn't find the book you were looking for.</h2>
+        {% endif %}
+    </div>
+
+
+    <script>
+        function handleBuy(id, title){
+            alert('Thank you for considering our book! We are processing your purchase of "' + title + '" (Book #'+ id +'). Please wait a moment while we complete the transaction.');
+        }
+    </script>
+
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .cart-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            grid-column-gap: 20px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 90%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-image {
+            flex-shrink: 0;
+            max-width: 100%; /* Ensure image is responsive */
+            margin-right: 20px;
+        }
+
+        .cart-image img {
+            height: 600px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 60%;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .price-container span {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .buy-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Mobile responsive styling */
+        @media (max-width: 768px) {
+            .cart-item {
+                grid-template-columns: 1fr; /* Stack the image and content on top of each other */
+                grid-row-gap: 20px;
+                padding: 15px;
+            }
+
+            .cart-image {
+                margin-right: 0;
+                max-width: 100%;
+            }
+
+            .cart-image img {
+                max-height: 300px; /* Limit the image height on mobile */
+                object-fit: contain; /* Keep the image aspect ratio intact */
+                display: block; /* Make the image a block-level element */
+                margin-inline: auto;
+            }
+
+            .cart-info {
+                text-align: center;
+            }
+
+            .price-container {
+                flex-direction: column; /* Stack price and button vertically */
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .buy-btn {
+                margin-top: 10px;
+                padding: 12px 25px; /* Make the button a bit bigger */
+                font-size: 1em;
+            }
+        }
+    </style>
+{% endblock %}

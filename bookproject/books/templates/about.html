@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block title %}About - Book Store{% endblock %}
+
+{% block content %}
+    <div class="about-section">
+        <h1>About Our Book Store</h1>
+        <p>Welcome to our Book Store Web Application! This platform offers a seamless experience for both customers and administrators, built using the Django framework.</p>
+
+        <h2>Key Features</h2>
+        <div class="feature">
+            <h3>Home Page</h3>
+            <ul>
+                <li>Displays a list of books available in the store.</li>
+                <li>Each book is presented with its title, description, image, and price.</li>
+                <li>Users can click on a book to view more details or add it to their cart.</li>
+            </ul>
+        </div>
+
+        <div class="feature">
+            <h3>Cart Page</h3>
+            <ul>
+                <li>Displays a detailed view of the selected book(s) in the shopping cart.</li>
+                <li>Shows the book's title, description, price, and a button to complete the purchase.</li>
+                <li>When the user clicks on the "Buy NOW" button, a polite message is displayed to confirm the purchase (with future enhancements like animations and modal windows).</li>
+            </ul>
+        </div>
+
+        <div class="feature">
+            <h3>Admin Panel</h3>
+            <ul>
+                <li>The administrator of the store has access to an admin interface (provided by Django) where they can manage the store's inventory.</li>
+                <li>The admin can add new books, edit existing book details, and delete books.</li>
+                <li>The admin can input data such as the book's title, description, price, and image URL, allowing the store's catalog to stay up to date.</li>
+            </ul>
+        </div>
+
+        <div class="feature">
+            <h3>Responsive Design</h3>
+            <ul>
+                <li>The website is mobile-friendly, with CSS styling adjustments that ensure proper display on mobile devices (e.g., flexible layouts, stacked elements).</li>
+                <li>The images, price, and buttons adjust dynamically based on the screen size, ensuring a seamless user experience across all devices.</li>
+            </ul>
+        </div>
+
+        <h2>Detailed Description of the Admin Panel Features</h2>
+        <p>The admin panel is one of the core components of this project. Django’s built-in admin interface is used to manage the books and update the store’s inventory. The admin panel enables the following functionalities:</p>
+        
+        <div class="admin-feature">
+            <h3>Add New Books</h3>
+            <ul>
+                <li>The administrator can add new books by filling out a form with the following fields:</li>
+                <ul>
+                    <li>Title: The name of the book (e.g., "Harry Potter - Rowling").</li>
+                    <li>Description: A brief description of the book (e.g., "Harry's adventures").</li>
+                    <li>Price: The price of the book in USD.</li>
+                    <li>Image URL: The URL of the book's cover image.</li>
+                </ul>
+            </ul>
+        </div>
+
+        <div class="admin-feature">
+            <h3>Edit Existing Books</h3>
+            <ul>
+                <li>The administrator can update any of the fields for an existing book, including title, description, price, or image URL.</li>
+            </ul>
+        </div>
+
+        <div class="admin-feature">
+            <h3>Delete Books</h3>
+            <ul>
+                <li>The admin can delete books from the inventory when they are no longer available for sale.</li>
+            </ul>
+        </div>
+
+        <div class="admin-feature">
+            <h3>View All Books</h3>
+            <ul>
+                <li>The admin has access to a list view where all books are displayed in a table format. This provides easy access to each book’s details, allowing for quick edits and deletions.</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_styles %}
+    <style>
+        .about-section {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+
+        .feature, .admin-feature {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            .feature, .admin-feature {
+                padding: 10px;
+                margin-top: 20px;
+            }
+        }
+    </style>
+{% endblock %}

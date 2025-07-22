@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Book store{% endblock %}</title>
+    <style>
+        /* Basic reset */
+        body, h1, h2, p, a {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styling for the navigation */
+        nav {
+            background-color: #333;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            margin-right: 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #28a745;
+        }
+
+        /* Responsive Layout for Navigation */
+        @media (max-width: 768px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            nav a {
+                margin-right: 0;
+                margin-bottom: 10px;
+                font-size: 1.5em; /* Make the links bigger for mobile */
+            }
+
+            nav a:last-child {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+    <!-- Additional styles block -->
+    {% block extra_styles %}
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/cart">Cart</a>
+        <a href="/admin">Admin</a>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+    <center class="footer">Book Store - 2025</center>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block title %}Book store - Home{% endblock %}
+
+{% block extra_styles %}
+    <style>
+        .page-title {
+            text-align: center;
+            font-size: 3em;
+            color: #2d2d2d;
+            margin-top: 20px;
+        }
+
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .book-card {
+            width: 250px;
+            margin: 15px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .book-title {
+            font-size: 1.3rem;
+            height: 3rem;
+            color: #333;
+        }
+
+        .book-description {
+            font-size: 1em;
+            color: #666;
+            padding-bottom: 10px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .book-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .book-price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .book-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .buy-button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            background-color: #255f24;
+        }
+
+        .no-books {
+            text-align: center;
+            font-size: 1.5em;
+            color: #999;
+        }
+
+        .footer {
+            font-size: 1em;
+            color: #888;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Home - Find the Best Books</h1>
+    <div class="book-list">
+        {% if books %}
+            {% for book in books %}
+                <section class="book-card">
+                    <h2 class="book-title">{{ book.title }}</h2>
+                    <p class="book-description">{{ book.description }}</p>
+                    <img class="book-image" src="{{ book.image_url }}" alt="{{ book.title }}">
+                    <div class="book-price-container">
+                        <span class="book-price">${{ book.price }}</span>
+                        <a href="/cart/?id={{ book.id }}"><button class="buy-button">Detail</button></a>
+                    </div>
+                </section>
+            {% endfor %}
+        {% else %}
+            <h2 class="no-books">No books available. Sorry!</h2>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
